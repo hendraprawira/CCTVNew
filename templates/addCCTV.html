@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5">
+	<meta name="author" content="AdminKit">
+	<meta name="keywords"
+		content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link rel="shortcut icon" href="{{ url_for('static', filename='src/img/icons/icon-polpp.png' ) }}" />
+
+	<link rel="canonical" href="https://demo-basic.adminkit.io/" />
+
+	<title>CCTV Analytics - SATPOL PP DKI JAKARTA </title>
+
+	<link href="{{ url_for('static', filename='css/app.css' ) }}" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+	<div class="wrapper">
+		<nav id="sidebar" class="sidebar js-sidebar">
+			<div class="sidebar-content js-simplebar">
+				<div class="sidebar-brand" style="margin: 0; float: none; text-align:center;">
+					<div class="row pt-4">
+						<img class="rounded-circle me-2"
+							src="{{ url_for('static', filename='img/avatars/Rectangle-4.png' ) }}" width="200"
+							height="200" alt="Polda">
+
+					</div>
+					<div class="row pt-4">
+						<h5 class="text-white mb-2 mt-auto">
+							<span class="align-middle">SATPOL PP DKI JAKARTA</span>
+						</h5>
+						<h5 class="text-white mb-2 mt-auto">
+							<span class="align-middle">(112233)</span>
+						</h5>
+					</div>
+
+				</div>
+				<ul class="sidebar-nav">
+					<li class="sidebar-header">
+						Pages
+					</li>
+
+					<li class="sidebar-item active">
+						<a class="sidebar-link" href="{{ url_for('index')}}">
+							<i class="align-middle" data-feather="sliders"></i> <span
+								class="align-middle">Monitoring</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+
+		<div class="main">
+			<nav class="navbar navbar-expand navbar-light navbar-bg">
+				<h2>CCTV Monitoring</h2>
+			</nav>
+
+			<main class="content">
+				<div class="container-fluid p-0">
+					<div class="row">
+						<div class="col-sm-6">
+							<h1 class="h3 mb-3"><strong>Tambah</strong> Channel CCTV</h1>
+						</div>
+					</div>
+					<div class="row">
+						<div class="w-100">
+							<div class="card">
+								<div class="card-header">
+									<h5 class="card-title mb-0">Channel CCTV</h5>
+								</div>
+								
+								<div class="card-body">
+									<form action="{{url_for('processaddCCTV')}}" method="POST">
+									<h5 class="mb-2" style="font-weight:bold">RTSP Link</h5>
+									<input type="text" id="link" name="link" class="form-control" placeholder="RTSP Link">
+									<h5 class="mb-2 mt-2" style="font-weight:bold">Wilayah</h5>
+									<select id="wilayah" name="wilayah" class="form-select mb-3">
+										<option selected disabled>-- Pilih Wilayah --</option>
+										<option>Jakarta Pusat</option>
+										<option>Jakarta Selatan</option>
+										<option>Jakarta Timur</option>
+										<option>Jakarta Barat</option>
+										<option>Jakarta Utara</option>
+									</select>
+								</div>
+								<button class="btn btn-success">Tambah Channel CCTV</button>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</main>
+
+			<footer class="footer">
+				<div class="container-fluid">
+					<div class="row text-muted">
+						<div class="col-6 text-start">
+							<p class="mb-0">
+								<a class="text-muted" href="https://adminkit.io/" target="_blank"><strong>CCTV Analytics
+										- SATPOL PP DKI JAKARTA</strong></a> &copy;
+							</p>
+						</div>
+						<div class="col-6 text-end">
+						</div>
+					</div>
+				</div>
+			</footer>
+		</div>
+	</div>
+
+	<script src="js/app.js"></script>
+
+
+
+	<style>
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+		}
+
+		#myImg {
+			border-radius: 5px;
+			cursor: pointer;
+			transition: 0.3s;
+		}
+
+		#myImg:hover {
+			opacity: 0.7;
+		}
+
+		/* The Modal (background) */
+		.modal {
+			display: none;
+			/* Hidden by default */
+			position: fixed;
+			/* Stay in place */
+			z-index: 1;
+			/* Sit on top */
+			padding-top: 100px;
+			/* Location of the box */
+			left: 0;
+			top: 0;
+			width: 100%;
+			/* Full width */
+			height: 100%;
+			/* Full height */
+			overflow: auto;
+			/* Enable scroll if needed */
+			background-color: rgb(0, 0, 0);
+			/* Fallback color */
+			background-color: rgba(0, 0, 0, 0.9);
+			/* Black w/ opacity */
+		}
+
+		/* Modal Content (image) */
+		.modal-content {
+			margin: auto;
+			display: block;
+			width: 80%;
+			max-width: 700px;
+		}
+
+		/* Caption of Modal Image */
+		#caption {
+			margin: auto;
+			display: block;
+			width: 80%;
+			max-width: 700px;
+			text-align: center;
+			color: #ccc;
+			padding: 10px 0;
+			height: 150px;
+		}
+
+		/* Add Animation */
+		.modal-content,
+		#caption {
+			-webkit-animation-name: zoom;
+			-webkit-animation-duration: 0.6s;
+			animation-name: zoom;
+			animation-duration: 0.6s;
+		}
+
+		@-webkit-keyframes zoom {
+			from {
+				-webkit-transform: scale(0)
+			}
+
+			to {
+				-webkit-transform: scale(1)
+			}
+		}
+
+		@keyframes zoom {
+			from {
+				transform: scale(0)
+			}
+
+			to {
+				transform: scale(1)
+			}
+		}
+
+		/* The Close Button */
+		.close {
+			position: absolute;
+			top: 15px;
+			right: 35px;
+			color: #f1f1f1;
+			font-size: 40px;
+			font-weight: bold;
+			transition: 0.3s;
+		}
+
+		.close:hover,
+		.close:focus {
+			color: #bbb;
+			text-decoration: none;
+			cursor: pointer;
+		}
+
+		/* 100% Image Width on Smaller Screens */
+		@media only screen and (max-width: 700px) {
+			.modal-content {
+				width: 100%;
+			}
+		}
+	</style>
+
+	<script>
+		// Get the modal
+		var modal = document.getElementById("myModal");
+		// var modal2 = document.getElementById("myModal2");
+
+		// Get the image and insert it inside the modal - use its "alt" text as a caption
+		var img = document.getElementById("myImg");
+		var modalImg = document.getElementById("img01");
+		var captionText = document.getElementById("caption");
+		img.onclick = function () {
+			modal.style.display = "block";
+			modalImg.src = this.src;
+			captionText.innerHTML = this.alt;
+		}
+
+		// Get the <span> element that closes the modal
+		var span = document.getElementsByClassName("close")[0];
+
+		// When the user clicks on <span> (x), close the modal
+		span.onclick = function () {
+			modal.style.display = "none";
+		}
+	</script>
+</body>
+
+</html>
